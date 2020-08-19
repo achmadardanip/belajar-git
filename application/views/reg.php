@@ -66,7 +66,7 @@
 					</div>
 					<div class="form-group">
 						<label>Alamat</label>
-						<textarea name="alamat" class="form-control"
+						<textarea name="alamat" id="alamat" class="form-control"
 							placeholder="Masukkan alamat" value="<?php echo set_value("alamat") ? set_value("alamat") : ''  ?>"></textarea>
 							<small class="text-danger"><?php echo form_error('alamat'); ?></small>
 					</div>
@@ -74,6 +74,7 @@
 						<label for="foto">Foto</label>
 						<input type="file" class="form-control" name="foto" id="foto">
 					</div>
+					<button type="button" class="btn btn-danger" onclick="resetDong()">Reset</button>
 					<button type="submit" class="btn btn-primary">Register</button>
 				</form>
 			</div>
@@ -89,6 +90,25 @@
     $('#password').password()
 
   	})
+	</script>
+
+	<script>
+    function resetDong() {
+		const inputs = document.querySelectorAll('input');
+		const textArea = document.getElementById('alamat');
+		const radio = document.querySelector('input[type=radio]');
+		const jk_m = document.getElementById('laki-laki');
+		const jk_f = document.getElementById('perempuan');
+
+        inputs.forEach(input => {
+			input.value = "";
+		});
+		jk_m.value="";
+		jk_f.value="";
+		textArea.value = "";
+		radio.valueAsDate = null;
+		// select.selectedIndex = 0;
+    }
 	</script>
 	
 </footer>
