@@ -22,7 +22,7 @@ class Reg extends CI_Controller{
 		$this->form_validation->set_rules('password', 'password','trim|required|min_length[8]|max_length[255]|xss_clean');
         $this->form_validation->set_rules('nama', 'nama','trim|required|min_length[1]|max_length[255]|xss_clean');
         $this->form_validation->set_rules('email', 'email','trim|required|min_length[10]|max_length[30]|is_unique[t_users.email]|xss_clean');
-        $this->form_validation->set_rules('jenis_kelamin', 'jenis_kelamin','required');
+        $this->form_validation->set_rules('jenis_kelamin', 'jenis kelamin','required');
         $this->form_validation->set_rules('no_hp', 'nomor handphone','trim|numeric|required|min_length[10]|max_length[15]|xss_clean');
         $this->form_validation->set_rules('alamat', 'alamat','trim|required|min_length[10]|max_length[255]|xss_clean');
 

@@ -84,7 +84,7 @@
                         <input type="hidden" name="id" class="form-control" value="<?php echo $curval ?>">
 						<?php $curval =  set_value("nama") ? set_value("nama") : $edit->nama?>
 						<input type="text" class="form-control" name="nama" id="nama"
-							value="<?php echo $curval ?>">
+							value="<?php echo $curval ?>" placeholder="Masukkan nama">
                             <?php echo form_error('nama'); ?>
 					</div>
 					<div class="form-group">
@@ -92,31 +92,31 @@
 						<input type="hidden" class="form-control" name="email_hidden" id="hidden"
 							value="<?php echo $this->encryption->decrypt($edit->email) ?>">
 						<input type="email" class="form-control" name="email" id="email"
-							value="<?php echo $this->encryption->decrypt($edit->email) ?>">
+							value="<?php echo $this->encryption->decrypt($edit->email) ?>" placeholder="Masukkan alamat email">
                             <?php echo form_error('email'); ?>
 					</div>
 					<div class="form-group">
 						<label for="username">Username</label>
 						<?php $curval =  set_value("username") ? set_value("username") : $edit->username?>
-						<input type="text" class="form-control" name="username" id="username" value="<?php echo $curval ?>">
+						<input type="text" class="form-control" name="username" id="username" value="<?php echo $curval ?>" placeholder="Masukkan username">
                         <?php echo form_error('username'); ?>
 					</div>
                     <div class="form-group">
                         <label for="jenis_kelamin">Jenis Kelamin</label>
-                        <label><input type="radio" name="jenis_kelamin" value="Laki-Laki"<?php echo ($edit->jenis_kelamin == 'Laki-Laki' ? ' checked' : ''); ?>> Laki-Laki</label>
-                        <label><input type="radio" name="jenis_kelamin" value="Perempuan"<?php echo ($edit->jenis_kelamin == 'Perempuan' ? ' checked' : ''); ?>> Perempuan</label>
+                        <label><input type="radio" name="jenis_kelamin" id="laki-laki" value="Laki-Laki"<?php echo ($edit->jenis_kelamin == 'Laki-Laki' ? ' checked' : ''); ?>> Laki-Laki</label>
+                        <label><input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan"<?php echo ($edit->jenis_kelamin == 'Perempuan' ? ' checked' : ''); ?>> Perempuan</label>
                     </div>
                     <?php echo form_error('jenis_kelamin'); ?>
                     <div class="form-group">
 						<label for="no_hp"><strong>Nomor Handphone</strong></label>
 						<?php $curval =  set_value("no_hp") ? set_value("no_hp") : $edit->no_hp?>
-						<input type="number" class="form-control" name="no_hp" id="no_hp" value="<?php echo $curval ?>">
+						<input type="number" class="form-control" name="no_hp" id="no_hp" value="<?php echo $curval ?>" placeholder="Masukkan nomor handphone">
 					</div>
                     <?php echo form_error('no_hp'); ?>
                     <div class="form-group">
 						<label><strong>Alamat</strong></label>
 						<?php $curval =  set_value("alamat") ? set_value("alamat") : $edit->alamat?>
-						<textarea name="alamat" class="form-control"><?php echo $curval?></textarea>
+						<textarea name="alamat" id="textarea" class="form-control" placeholder="Masukkan alamat"><?php echo $curval?></textarea>
 					</div>
                     <?php echo form_error('alamat'); ?>
 					<div class="form-group">
@@ -125,6 +125,7 @@
 						<input type="hidden" name="old_image" value="<?php echo $edit->foto;?>">
 					</div>
                     <a href="<?php echo site_url('rumah')?>"><button type="button" class="btn btn-secondary">Kembali</button></a>
+					<button type="button" class="btn btn-danger" onclick="resetDong()">Reset</button>
 					<button type="submit" name="submit" class="btn btn-primary">Edit</button>
 				</form>
 			</div>
@@ -134,6 +135,26 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<script>
+    function resetDong() {
+		const inputs = document.querySelectorAll('input');
+		const textArea = document.getElementById('textarea');
+		const radio = document.querySelector('input[type=radio]');
+		const jk_m = document.getElementById('laki-laki');
+		const jk_f = document.getElementById('perempuan');
+		// const file = document.querySelector('file');
+
+        inputs.forEach(input => {
+			input.value = "";
+		});
+		jk_m.value="";
+		jk_f.value="";
+		textArea.value = "";
+		radio.valueAsDate = null;
+		// select.selectedIndex = 0;
+    }
+</script>
 </body>
 
 </html>
