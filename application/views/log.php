@@ -15,9 +15,9 @@
 				<?php 
 				if($this->session->flashdata('error') !='')
 				{
-					echo '<div class="alert alert-danger" role="alert">';
+					// echo '<div class="alert alert-danger" role="alert">';
 					echo $this->session->flashdata('error');
-					echo '</div>';
+					// echo '</div>';
 				}
 				?>
  

@@ -24,7 +24,11 @@ class Log extends CI_Controller {
         if($this->Autentikasi_m->login_user($username, $password)){
             redirect('rumah');
         } else {
-            $this->session->set_flashdata('error', 'Username atau password salah');
+            $this->session->set_flashdata('error', '<div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            Username dan password tidak cocok dengan akun manapun
+            </div>');
+            // $this->session->set_flashdata('error', 'Username atau password salah');
             redirect('log');
         }
     }
