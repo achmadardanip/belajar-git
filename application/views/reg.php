@@ -35,40 +35,40 @@
 						<label for="username">Username</label>
 						<input type="text" class="form-control" name="username" id="Masukkan username"
 							placeholder="Masukkan Username" value="<?php echo set_value("username") ? set_value("username") : ''  ?>">
-							<?php echo form_error('username', "<span>", "</span>"); ?>
+							<small class="text-danger"><?php echo form_error('username'); ?></small>
 					</div>
 					<div class="form-group">
 						<label for="password">Password</label>
 						<input type="password" class="form-control" name="password" id="password"
 							placeholder="Massukan Password">
-							<?php echo form_error('password', "<span>", "</span>"); ?>
+							<small class="text-danger"><?php echo form_error('password'); ?></small>
 					</div>
 					<div class="form-group">
 						<label for="nama">Nama</label>
 						<input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan nama" value="<?php echo set_value("nama") ? set_value("nama") : ''  ?>">
-						<?php echo form_error('nama', "<span>", "</span>"); ?>
+						<small class="text-danger"><?php echo form_error('nama'); ?></small>
 					</div>
 					<div class="form-group">
 						<label for="email">Email</label>
 						<input type="email" class="form-control" name="email" id="nama" placeholder="Masukkan email" value="<?php echo set_value("email") ? set_value("email") : ''  ?>">
-						<?php echo form_error('email', "<span>", "</span>"); ?>
+						<small class="text-danger"><?php echo form_error('email'); ?></small>
 					</div>
 					<div class="form-group">
 						<label for="no_hp">Nomor Handphone</label>
 						<input type="number" class="form-control" name="no_hp" id="no_hp" placeholder="Masukkan nomor handphone" value="<?php echo set_value("no_hp") ? set_value("no_hp") : ''  ?>">
-						<?php echo form_error('no_hp', "<span>", "</span>"); ?>
+						<small class="text-danger"><?php echo form_error('no_hp'); ?></small>
 					</div>
 					<div class="form-group">
 						<label for="jenis_kelamin">Jenis Kelamin</label>
                         <label><input type="radio" name="jenis_kelamin" value="Laki-Laki" <?php echo  set_radio('jenis_kelamin', 'Laki-Laki'); ?>/> Laki-Laki</label>
                         <label><input type="radio" name="jenis_kelamin" value="Perempuan" <?php echo  set_radio('jenis_kelamin', 'Perempuan'); ?>/> Perempuan</label>
-						<?php echo form_error('jenis_kelamin', "<span>", "</span>"); ?>
+						<small class="text-danger"><?php echo form_error('jenis_kelamin'); ?></small>
 					</div>
 					<div class="form-group">
 						<label>Alamat</label>
 						<textarea name="alamat" class="form-control"
 							placeholder="Masukkan alamat" value="<?php echo set_value("alamat") ? set_value("alamat") : ''  ?>"></textarea>
-							<?php echo form_error('alamat', "<span>", "</span>"); ?>
+							<small class="text-danger"><?php echo form_error('alamat'); ?></small>
 					</div>
 					<div class="form-group">
 						<label for="foto">Foto</label>

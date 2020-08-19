@@ -19,7 +19,7 @@ class Reg extends CI_Controller{
 
     public function proses(){
         $this->form_validation->set_rules('username', 'username','trim|required|min_length[1]|max_length[15]|xss_clean|is_unique[t_users.username]');
-		$this->form_validation->set_rules('password', 'password','trim|required|min_length[8]|max_length[16]|xss_clean');
+		$this->form_validation->set_rules('password', 'password','trim|required|min_length[8]|max_length[255]|xss_clean');
         $this->form_validation->set_rules('nama', 'nama','trim|required|min_length[1]|max_length[255]|xss_clean');
         $this->form_validation->set_rules('email', 'email','trim|required|min_length[10]|max_length[30]|is_unique[t_users.email]|xss_clean');
         $this->form_validation->set_rules('jenis_kelamin', 'jenis_kelamin','required');

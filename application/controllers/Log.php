@@ -28,7 +28,6 @@ class Log extends CI_Controller {
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             Username dan password tidak cocok dengan akun manapun
             </div>');
-            // $this->session->set_flashdata('error', 'Username atau password salah');
             redirect('log');
         }
     }
