@@ -8,7 +8,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+	<!-- <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"> -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
@@ -58,49 +58,13 @@
 		</nav>
 	</header>
 	<div class="container" style="margin-top: 60px">
-	<?php echo $this->session->flashdata('message'); ?>
 		<div class="row" style="display: inline;">
 			<!-- <div class="col-md-12"> -->
 			<div class="card">
-				<div class="card-header"><strong>DATA USER</strong></div>
+				<div class="card-header"><strong><?php echo $title ?></strong></div>
 				<div class="card-body">
-					<div id="printbar" style="float:right;"></div>
-					<table class="table table-bordered table-hover" id="myTable">
-						<thead>
-							<tr>
-								<th scope="col">NO</th>
-								<th scope="col">NAMA</th>
-								<th scope="col">EMAIL</th>
-								<th scope="col">ALAMAT</th>
-								<th scope="col">AKSI</th>
-							</tr>
-						</thead>
-
-						<tbody>
-							<?php
-                            $no=1;
-                            if(is_array($user) || is_object($user)) {
-                            foreach($user->result() as $usr) {
-                            ?>
-
-							<tr>
-								<td><?php echo $no++ ?></td>
-								<td><?php echo $usr->nama ?></td>
-								<td><?php echo $this->encryption->decrypt($usr->email) ?></td>
-								<td><?php echo $usr->alamat ?></td>
-								<td class="text-center">
-									<a href="<?php echo site_url('rumah/detail/'.str_replace(['/', '=', '+'],['garing', 'samadengan', 'plus'], $this->encryption->encrypt($usr->id))) ?>"
-										class="btn btn-sm btn-success"><i class="fa fa-search-plus"></i> Detail</a>
-									<a href="<?php echo site_url('rumah/edit_user/'.str_replace(['/', '=', '+'],['garing', 'samadengan', 'plus'], $this->encryption->encrypt($usr->id))) ?>"
-										class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-									<a onclick="javascript: return confirm('Anda yakin hapus?')"
-										href="<?php echo site_url('rumah/hapus_user/'.str_replace(['/', '=', '+'],['garing', 'samadengan', 'plus'], $this->encryption->encrypt($usr->id))) ?>"
-										class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Hapus</a>
-								</td>
-							</tr>
-							<?php }} ?>
-						</tbody>
-					</table>
+                    <div id="printbar" style="float:right;"></div>
+                    <p>Ini adalah halaman rumah</p>
 				</div>
 			</div>
 			<!-- </div> -->
@@ -110,62 +74,14 @@
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	<!-- <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
-	<script>
-		$(document).ready(function () {
-			var table = $('#myTable').DataTable({
-				pageLength: 5,
-				lengthMenu: [
-					[5, 10, 25, 50, -1],
-					[5, 10, 25, 50, "All"]
-				],
-				dom: 'lBfrtip',
-				buttons: [
-				{
-					extend : 'copyHtml5',
-					exportOptions: {
-					columns: [0, 1, 2]
-					}
-				},
-				{
-					extend: 'csvHtml5',
-					exportOptions: {
-						columns: [0, 1, 2]
-					}
-				},
-				{
-					extend: 'excelHtml5',
-					exportOptions: {
-						columns: [0, 1, 2]
-					}
-				},
-				{
-					extend: 'pdfHtml5',
-					exportOptions: {
-						columns: [0, 1, 2]
-					}
-				},
-				{
-					extend: 'print',
-					exportOptions: {
-						columns: [0, 1, 2]
-					}
-				}
-				]
-
-
-			});
-			table.buttons().container().appendTo($('#printbar'));
-		});
-
-	</script>
+	<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script> -->
 </body>
 
 </html>

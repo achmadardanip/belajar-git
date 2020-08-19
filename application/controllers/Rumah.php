@@ -25,6 +25,11 @@ class Rumah extends CI_Controller {
         $this->load->view('rumah', $data);
     }
 
+    public function lorem(){
+        $data['title'] = "Home";
+        $this->load->view('home_crud', $data);
+    }
+
     public function detail($id){
         $real_id = $this->encryption->decrypt(str_replace(['garing', 'samadengan', 'plus'], ['/', '=', '+'], $id));
         $detail = $this->Autentikasi_m->detail_data($real_id);
