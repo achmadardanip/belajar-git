@@ -62,14 +62,22 @@ class Forgot_pass extends CI_Controller {
                     $config['wordwrap'] = TRUE;
                         
                     $this->email->initialize($config);
+                    $this->load->library('parser');
                     $this->email->from($config['smtp_user'], 'no-reply');
                     $this->email->to($this->input->post('email'));
                     $this->email->subject("Reset your password");
+                    $data = array (
+                        'username' => $username,
+                        'reset_key' => $reset_key
+                    );
+                    $body = $this->parser->parse('forgot_temp/email', $data, true);
 
-                    $message = "<p>Anda melakukan permintaan reset password</p>";
-                    $message .= "<p>Silakan masukan kode berikut <b>$reset_key</b> di bagian reset key</p>";
-                    $message .= "<a href='".site_url('forgot_pass/reset_password/'.$reset_key)."'>klik reset password</a>";
-                    $this->email->message($message);
+                    // $message = "<p>Anda melakukan permintaan reset password</p>";
+                    // $message .= "<p>Silakan masukan kode berikut <b>$reset_key</b> di bagian reset key</p>";
+                    // $message .= "<a href='".site_url('forgot_pass/reset_password/'.$reset_key)."'>klik reset password</a>";
+                    $this->email->message($body);
+
+
 
                     if($this->email->send())
                     {
