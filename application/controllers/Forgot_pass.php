@@ -122,7 +122,7 @@ class Forgot_pass extends CI_Controller {
                 redirect('forgot_pass/reset_password');
             }
         } else {
-            $this->load->view('reset_password');
+            $this->load->view('reset_password'); //ini digunakan untuk kembali ke view reset_password jika form validation salah
         }
 
     }
